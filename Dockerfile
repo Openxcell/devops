@@ -1,4 +1,4 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install curl -y
-RUN  curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall
+FROM node:8.11
+RUN npm install pm2 -g
+EXPOSE 80 443 43554
+CMD ["pm2-runtime", "start", "pm2.json"]
